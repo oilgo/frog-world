@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %} Мир лягушек {% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1 style="color: #588c7e;" class="mb-3 d-flex justify-content-center">{{type_info.type_name}}</h1>
+    <div class="d-flex justify-content-center">
+        <img src="..\static\{{type_info.type_img}}" class="mr-3" width="300">
+    </div>
+</div>
+<h1 style="color: #588c7e;" class="mt-5 mb-3 ">Лягушки этого типа</h1>
+<div class="d-flex flex-wrap align-content-around mt-3">
+    {% for i in range(0, frogs|length) %}
+    <div class="card pa-8" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title" style="color: #588c7e;"><a href="/frog/{{frogs[i].Frogs.frog_id}}">{{
+                    frogs[i].Frogs.frog_name }}</a></h5>
+            <p class="card-text" style="color: #588c7e;"><a style="font-weight: bold;">Место обитания: </a>
+                <a href="/place/{{frogs[i].Places.place_id}}">{{frogs[i].Places.place_name}}</a>
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

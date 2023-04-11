@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %} Мир лягушек {% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="width: 50rem; background-color:rgb(246, 246, 246)">
+    <div class="card-body" >
+        <div class="mb-3 d-flex justify-content-center card-title">
+            <h1 style="color: #588c7e;">О дивный новый мир лягушек...</h1>
+        </div>
+        <div class="d-flex justify-content-center">
+            <img class="card-img-top " style="width: 20rem;" src="..\static\start.jpg" alt="Card image cap">
+        </div>
+        <div class="pt-3 ml-5 card-text">
+            <p style="color: #1e7145; font-size: large;">Мы с лягушками подумали и решили, что они лучше, чем лингвистические исследования! </p>
+              <p style="color: #1e7145; font-size: large;" class="mt-5"> Вы тоже можете присоединиться к лягушачьему миру:</p>
+        </div>
+        <div class="ml-5 mt-4">
+        <a href="/form" class="btn btn-success">Создать собственную лягушку</a>
+        <a href="/world" class="btn btn-success ml-3">Изучить мир лягушек</a>
+        <a href="/statistics" class="btn btn-success ml-3">Лягушачья статистика</a>
+    </div>
+    </div>
+</div>
+{% endblock %}

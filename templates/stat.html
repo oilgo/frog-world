@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block title %} Мир лягушек {% endblock %}
+
+{% block content %}
+
+<h1 style="color: #588c7e;" class="mb-5 d-flex justify-content-center">Немного лягушачьей статистики:</h1>
+<div id="accordion">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h5 class="mb-0">
+          <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Всего в нашем мире {{info['frogs']}} лягушек
+          </button>
+        </h5>
+      </div>
+  
+      <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Имя</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in range(0, info['frogs_stat']|length) %}
+                  <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td><a href="/frog/{{info['frogs_stat'][i].frog_id}}">{{info['frogs_stat'][i].frog_name}}</a></td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingTwo">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            Их создали несколько пользователей: {{info['users']}}
+          </button>
+        </h5>
+      </div>
+      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Имя пользователя</th>
+                    <th scope="col">Создал лягушек</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in range(0, info['users_stat']|length) %}
+                  <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td>{{info['users_stat'][i].human_name}}</td>
+                    <td>{{info['users_stat'][i][1]}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" id="headingThree">
+        <h5 class="mb-0">
+          <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            В нашем мире {{info['types']}} типов лягушек
+          </button>
+        </h5>
+      </div>
+      <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Название типа</th>
+                    <th scope="col">Количество лягушек</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in range(0, info['types_stat']|length) %}
+                  <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td><a href="/type/{{info['types_stat'][i].type_id}}">{{info['types_stat'][i].type_name}}</a></td>
+                    <td>{{info['types_stat'][i][2]}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingFour">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              Лягушки живут в {{info['places']}} разных местах
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+          <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col"><a href="/world">Название места</a></th>
+                    <th scope="col">Количество лягушек</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in range(0, info['places_stat']|length) %}
+                  <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td><a href="/place/{{info['places_stat'][i].place_id}}">{{info['places_stat'][i].place_name}}</a></td>
+                    <td>{{info['places_stat'][i][2]}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header" id="headingFive">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              И у них есть друзья: целых {{info['friends']}}
+            </button>
+          </h5>
+        </div>
+        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+          <div class="card-body">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Имя друга</th>
+                    <th scope="col">Количество друзей-лягушек</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {% for i in range(0, info['friends_stat']|length) %}
+                  <tr>
+                    <th scope="row">{{i + 1}}</th>
+                    <td><a href="/friend/{{info['friends_stat'][i].friend_id}}">{{info['friends_stat'][i].friend_name}}</a></td>
+                    <td>{{info['friends_stat'][i][2]}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+        </div>
+        </div>
+      </div>
+  </div>
+
+
+
+{% endblock %}

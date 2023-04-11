@@ -1,0 +1,185 @@
+{% extends 'base.html' %}
+
+{% block title %} Выбор лягушки {% endblock %}
+
+{% block content %}
+<h1 style="color: #588c7e;">Выберите себе лягушку!</h1>
+<form class="mt-3" action="new_frog" method="post">
+    <div class="form-group">
+        <label for="HumanName" style="color: #588c7e">Ваше человеческое имя</label>
+        <input type="text" class="form-control" required id="HumanName" name="human_name">
+    </div>
+    <div class="form-group mt-9">
+        <label for="FrogName" style="color: #588c7e">Ваше лягушачье имя</label>
+        <input type="text" class="form-control" required id="FrogName" name="frog_name">
+    </div>
+    <p style="color: #588c7e; font-size: large;">Кто вы в лягушачьем мире?</p>
+    <div class="form-row">
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="frog1" name="frog_type" value="музыквант" required>
+            <label class="custom-control-label" for="frog1">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\музыквант.jpg" class="mr-3" width="100" alt="музыквант">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        музыквант
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="custom-control custom-radio ml-5">
+            <input type="radio" class="custom-control-input" id="frog2" name="frog_type" value="инкваверт" required>
+            <label class="custom-control-label" for="frog2">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\инкваверт.jpg" class="mr-3" width="100" alt="инкваверт">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        инкваверт
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="custom-control custom-radio ml-5">
+            <input type="radio" class="custom-control-input" id="frog3" name="frog_type" value="кваролева" required>
+            <label class="custom-control-label" for="frog3">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\кваролева.jpg" class="mr-3" width="100" alt="кваролева">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        кваролева
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <div class="form-row mt-4">
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="frog4" name="frog_type" value="квавбой" required>
+            <label class="custom-control-label" for="frog4">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\квавбой.jpg" class="mr-3" width="100" alt="квавбой">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        квавбой
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="custom-control custom-radio ml-5">
+            <input type="radio" class="custom-control-input" id="frog5" name="frog_type" value="мамаква" required>
+            <label class="custom-control-label" for="frog5">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\мамаква.jpg" class="mr-3" width="100" alt="мамаква">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        мамаква
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="custom-control custom-radio ml-5">
+            <input type="radio" class="custom-control-input" id="frog6" name="frog_type" value="муквамор" required>
+            <label class="custom-control-label" for="frog6">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\муквамор.jpg" class="mr-3" width="100" alt="муквамор">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        муквамор
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <p style="color: #588c7e; font-size: large;" class="mt-5">Выберите себе друзей</p>
+    <div class="form-row">
+        <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="friend1" value="бабочка" name="friend1">
+            <label class="form-check-label" for="friend1">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\бабочка.jpg" class="mr-3" width="100" alt="бабочка">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        бабочка
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group form-check ml-5">
+            <input type="checkbox" class="form-check-input" value="улитка" id="friend2" name="friend2">
+            <label class="form-check-label" for="friend2">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\улитка.jpg" class="mr-3" width="100" alt="улитка">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        улитка
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="form-group form-check ml-5">
+            <input type="checkbox" class="form-check-input" value="черепашка" id="friend3" name="friend3">
+            <label class="form-check-label" for="friend3">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\черепашка.jpg" class="mr-3" width="100" alt="черепашка">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        черепашка
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <p style="color: #588c7e; font-size: large;" class="mt-5">Где вы живете?</p>
+    <div class="form-row">
+        <div class="custom-control custom-radio">
+            <input type="radio" class="custom-control-input" id="loc1" value="пруд" name="place" required>
+            <label class="custom-control-label" for="loc1">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\пруд.jpg" class="mr-3" width="150" alt="пруд">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        пруд
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="custom-control custom-radio ml-5">
+            <input type="radio" class="custom-control-input" id="loc2" value="лужайка" name="place" required>
+            <label class="custom-control-label" for="loc2">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\лужайка.jpg" class="mr-3" width="150" alt="лужайка">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        лужайка
+                    </div>
+                </div>
+            </label>
+        </div>
+        <div class="custom-control custom-radio ml-5">
+            <input type="radio" class="custom-control-input" id="loc3" value="пенек" name="place" required>
+            <label class="custom-control-label" for="loc3">
+                <div class="form-col">
+                    <div class="media">
+                        <img src=".\static\пенек.jpg" class="mr-3" width="150" alt="пенек">
+                    </div>
+                    <div style="color: #588c7e;" class="ml-2 mt-0">
+                        пенек
+                    </div>
+                </div>
+            </label>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success mt-5">Создать лягушку!</button>
+</form>
+{% endblock %}

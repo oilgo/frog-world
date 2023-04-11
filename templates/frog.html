@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="jumbotron">
+  <div class="media">
+    <img src="{{photo}}" width="200" class="mr-5">
+    <div class="media-body">
+      <h1 style="color: #588c7e;" class="mb-3 ">Паспорт лягушки!</h1>
+      <h4 class="mt-2" style="color: #1e7145;">
+        <a style="font-weight: bold;">
+          Лягушачье имя:
+        </a>
+      {{frog["frog_name"]}}</h4>
+      <h5 class="mt-2" style="color: #588c7e;">
+        <a style="font-weight: bold;">
+          Человеческое имя:
+        </a>
+        {{frog["human_name"]}}
+      </h5>
+      <h5 class="mt-2" style="color: #588c7e;">
+        <a style="font-weight: bold;">Тип: </a>
+        <a href="/type/{{type_id}}">{{frog["frog_type"]}}</a>
+      </h5>
+      <h5 class="mt-2" style="color: #588c7e;">
+        <a style="font-weight: bold;">
+          Друзья:
+        </a>
+        {% for i in range(0, friends[0]|length) %}
+        <a href="/friend/{{friends[1][i]}}">{{friends[0][i]}}</a>
+        {% endfor %}
+      </h5>
+      <h5 class="mt-2" style="color: #588c7e;">
+        <a style="font-weight: bold;">
+          Место жительства:
+        </a>
+        <a href="/place/{{place_id}}">{{frog["place"]}}</a>
+      </h5>
+    </div>
+  </div>
+</div>
+{% endblock %}
